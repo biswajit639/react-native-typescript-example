@@ -1,8 +1,17 @@
+language: node_js
+node_js:
+  - "stable"
+before_install:
+    - npm install -g tslint typescript typedoc 
+script:
+    - npm run tsc:ci
+    - npm run test:ci
+    - npm run docs
+
 language: android  
 before_install:
     - nvm install 6
-    - node --version
-    - npm install -g tslint typescript typedoc 
+    - node --version   
 install:
     - npm install
 android:
@@ -14,9 +23,7 @@ android:
   - extra-google-m2repository
   - addon-google_apis-google-16    
 script:
-    - npm run tsc:ci
-    - npm run test:ci
-    - npm run docs
+    - npm run ci
     - cd android && ./gradlew assembleRelease
 deploy:
   provider: releases
@@ -24,3 +31,6 @@ deploy:
   api_key:
     secure: VF7mNMG9fOnHl5+GsZZqyIbVemErvt+9Rfe/k9Gpp/ngmctl63KkvGlHJUUKQX6lbOsljONpX1rARpyzVcwTX60lI1kV+gRSog1cZxKRrgiI8Oy5enNf7IM+X0RXDMb3+9FRjdreQp6iMN5Onj3cdE1/QJF8SFvItQjdeF9ua2GnDDHBnXuVvs3a3/uXbkUtV79DQankXln6qAlF75oNVBVYz8Jf7DHoZejSrILOo01gnHn/pBd3rzDqmBt2zWL5EJOTc6nCUz6t3N4qYdhaGhoqBGaUU63vc3Y5sqquyBLnXsqcfrissnBxh54j0lMyF4guDUE6uBeI1jddIzjJORnWSORMRBe+Ij4YqOdzCAom598BCdOTWLcD6xS5HpW60/njqKFCx6eWXu6iJ1mMfwSdTrZ7HK6qijGcZFGjHUFmWmnFlegRPSK2uAONzOUGieoxKZsVwJvUaiYtzuiur6hsBCMkdYN3WIqXxw0a0N9TT6bzTdvI1OMJrXmYiECphUDHsgLKgx0TX1uJkr93LiPqg9BGVdomkzxQCRBGzs8RnBYeAlfToEJIrPQHaFtN3R+bMFUnDMXmQQCdlHb587hdwg3ZnsUO4ybRHHIvvHpOHu6fSnSHcKqKGM5jqY6zeDn+j10JjE9A6aG6dRI0jtLyFLao5S+bxWd93Ln5+c0=
   file: $TRAVIS_BUILD_DIR/android/app/build/outputs/apk/app-release-unsigned.apk
+  
+notifications:
+    slack: britishgasapp:R2pfdHMeBoHpHbPeFxtNjFyY  

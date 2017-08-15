@@ -23,7 +23,7 @@ android:
   - extra-google-m2repository
   - addon-google_apis-google-16    
 script:
-    - npm run ci
+    - npm run tsc:ci
     - cd android && ./gradlew assembleRelease
 deploy:
   provider: releases

@@ -8,7 +8,7 @@
     "tsc:ci": "./node_modules/.bin/tsc",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "test": "jest --env=jsdom --watchAll",
+    "test": "jest --env=jsdom --coverage",
     "test:ci": "jest --env=jsdom --coverage",
     "docs": "typedoc --options typedoc.json --out docs src/"
   },

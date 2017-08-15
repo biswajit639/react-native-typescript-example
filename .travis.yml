@@ -2,12 +2,10 @@ language: node_js
 node_js:
   - "stable"
 before_install:
-    - npm install -g tslint typescript typedoc
-    
+    - npm install -g tslint typescript typedoc 
 script:
     - npm run tsc:ci
     - npm run test:ci
     - npm run docs
-
- notifications:
+notifications:
     slack: britishgasapp:ChfgOsxRIFfdQYMajRiyySSO

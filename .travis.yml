@@ -3,5 +3,7 @@ node_js:
   - "7.1"
 build:
   run:
-    - npm test
+    - npm run tsc:ci
+    - npm run test:ci
+    - npm run docs
   

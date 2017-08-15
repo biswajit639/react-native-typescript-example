@@ -1,8 +1,7 @@
 language: node_js
 node_js:
   - "stable"
-build:
-  run:
+scripts:
     - npm run tsc:ci
     - npm run test:ci
     - npm run docs

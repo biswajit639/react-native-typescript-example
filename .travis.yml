@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "stable"
 before_install:
-    - sudo install -g tslint typescript typedoc
+    - npm install -g tslint typescript typedoc
     
 script:
     - npm run tsc:ci

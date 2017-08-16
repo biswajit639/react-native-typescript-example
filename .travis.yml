@@ -29,12 +29,10 @@ matrix:
         - yarn
       android:
         components:
-          - android update sdk --no-ui --all --filter build-tools-25.0.1,android-25,extra-android-m2repository
+          - android update sdk --no-ui --all --filter tools,build-tools-25.0.1,android-25,extra-android-m2repository
           - extra-google-google_play_services
           - extra-google-m2repository
           - addon-google_apis-google-16
       script:
         - cd android && ./gradlew assembleDebug && ./gradlew assembleRelease
   
-notifications:
-    slack: britishgasapp:R2pfdHMeBoHpHbPeFxtNjFyY  

@@ -29,7 +29,10 @@ matrix:
         - yarn
       android:
         components:
-          - android update sdk --no-ui --all --filter tools,build-tools-25.0.1,android-25,extra-android-m2repository
+          - tools
+          -build-tools-25.0.1
+          -android-25
+          -extra-android-m2repository
           - extra-google-google_play_services
           - extra-google-m2repository
           - addon-google_apis-google-16
